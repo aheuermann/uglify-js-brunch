@@ -1,6 +1,6 @@
 {
   "name": "ngmin-uglify-js-brunch",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "A fork of the Uglify js brunch plugin adding Ngmin support.",
   "author": "Andrew Heuermann <aheuermann@gmail.com>",
   "contributors": [ 
@@ -26,5 +26,8 @@
   "devDependencies": {
     "mocha": "1.11.0",
     "chai": "1.7.0"
+  },
+  "peerDependencies": {
+    "brunch": ">= 1.7.0 < 2"
   }
 }
