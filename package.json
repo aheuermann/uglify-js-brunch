@@ -1,12 +1,16 @@
 {
   "name": "ngmin-uglify-js-brunch",
-  "version": "1.7.2",
+  "version": "1.7.13",
   "description": "A fork of the Uglify js brunch plugin adding Ngmin support.",
   "author": "Andrew Heuermann <aheuermann@gmail.com>",
   "contributors": [ 
     {
       "name": "Paul Miller",
       "url" : "http://paulmillr.com/"
+    },
+    {
+      "name": "Andrew Heuermann",
+      "url" : "http://heu.io/"
     } 
   ],
   "homepage": "https://github.com/aheuermann/ngmin-uglify-js-brunch",
@@ -14,20 +18,16 @@
     "type": "git",
     "url": "git@github.com:aheuermann/ngmin-uglify-js-brunch.git"
   },
-  "main": "./lib/index",
+  "main": "index.js",
   "scripts": {
-    "prepublish": "rm -rf lib && coffee --bare --output lib/ src/",
-    "test": "node_modules/.bin/mocha --require test/common.js"
+    "test": "node_modules/.bin/mocha"
   },
   "dependencies": {
-    "uglify-js": "~2.3.6",
+    "uglify-js": "~2.4.8",
     "ngmin": "~0.4.0"
   },
   "devDependencies": {
     "mocha": "1.11.0",
     "chai": "1.7.0"
-  },
-  "peerDependencies": {
-    "brunch": ">= 1.7.0 < 2"
   }
 }

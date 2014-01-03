@@ -1,3 +1,6 @@
+var expect = require('chai').expect;
+var Plugin = require('./');
+
 describe('Plugin', function() {
   var plugin;
 
@@ -17,9 +20,9 @@ describe('Plugin', function() {
     var content = '(function(){angular.module("whatever").controller("MyCtrl", function ($scope, $http) {})})()';
     var expected = '!function(){angular.module("whatever").controller("MyCtrl",["$scope","$http",function(){}])}();';
 
-    plugin.optimize(content, '', function(error, data) {
+    plugin.optimize({data:content, path:''}, function(error, data) {
       expect(error).not.to.be.ok;
-      expect(data).to.equal(expected);
+      expect(data.data).to.equal(expected);
       done();
     });
   });
@@ -31,9 +34,9 @@ describe('Plugin', function() {
     var expected = '!function(){var n=5;window.second=n}();';
     var expectedMap = '{"version":3,"file":".map","sources":["?"],"names":["first","window","second"],"mappings":"CAAC,WACC,GAAIA,GAAQ,CACZC,QAAOC,OAASF"}';
 
-    plugin.optimize(content, '', function(error, data) {
+    plugin.optimize({data:content, path:''}, function(error, data) {
       expect(error).not.to.be.ok;
-      expect(data.code).to.equal(expected);
+      expect(data.data).to.equal(expected);
       expect(data.map).to.equal(expectedMap);
       done();
     });
